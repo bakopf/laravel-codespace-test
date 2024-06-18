@@ -8,7 +8,7 @@
                 <p>info@example.com</p>
             </div>
             <div class="col-lg-3 mb-4 mb-lg-0">
-                <h5>Quick Links</h5>
+                <h5>Quick Links</h5>    
                 <ul class="list-unstyled">
                     <li><a href="{{ route('privacy') }}" class="text-white">Privacy</a></li>
                     <li><a href="{{ route('imprint') }}" class="text-white">Imprint</a></li>
