@@ -1,0 +1,50 @@
+{
+    "name": "Laravel Codespace",
+    "image": "mcr.microsoft.com/vscode/devcontainers/php:7.4",
+    "features": {
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "16"
+        },
+        "ghcr.io/devcontainers/features/mysql:1": {
+            "version": "latest"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "felixfbecker.php-intellisense",
+                "bmewburn.vscode-intelephense-client",
+                "onecentlin.laravel-blade",
+                "austenc.laravel-blade-spacer"
+            ]
+        }
+    },
+    "postCreateCommand": "composer install && npm install && npm run dev",
+    "portsAttributes": {
+        "8000": {
+            "label": "Laravel",
+            "onAutoForward": "openBrowser"
+        },
+        "3306": {
+            "label": "MySQL"
+        }
+    },
+    "forwardPorts": [
+        8000,
+        3306
+    ],
+    "remoteEnv": {
+        "APP_ENV": "local",
+        "APP_DEBUG": "true",
+        "APP_URL": "http://localhost",
+        "DB_CONNECTION": "mysql",
+        "DB_HOST": "127.0.0.1",
+        "DB_PORT": "3306",
+        "DB_DATABASE": "laravel",
+        "DB_USERNAME": "root",
+        "DB_PASSWORD": ""
+    },
+    "mounts": [
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+    ]
+}
